@@ -1,0 +1,26 @@
+{
+  "name": "cloud-ide",
+  "version": "1.0.0",
+  "description": "An online code editor",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devansh016/Cloud-IDE.git"
+  },
+  "author": "Devansh Chaudhary",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/devansh016/Cloud-IDE/issues"
+  },
+  "homepage": "https://github.com/devansh016/Cloud-IDE#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.12"
+  }
+}
