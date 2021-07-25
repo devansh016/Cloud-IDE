@@ -1,7 +1,7 @@
 {
-  "name": "cloud-ide",
+  "name": "online-judge",
   "version": "1.0.0",
-  "description": "An online code editor",
+  "description": "An Online-judge system build using MERN Stack",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/devansh016/Cloud-IDE.git"
+    "url": "git+https://github.com/devansh016/Online-Judge.git"
   },
   "author": "Devansh Chaudhary",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/devansh016/Cloud-IDE/issues"
+    "url": "https://github.com/devansh016/Online-Judge/issues"
   },
-  "homepage": "https://github.com/devansh016/Cloud-IDE#readme",
+  "homepage": "https://github.com/devansh016/Online-Judge#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
@@ -24,5 +24,6 @@
     "express": "^4.17.1",
     "nodemon": "^2.0.12",
     "react": "^17.0.2"
-  }
+  },
+  "devDependencies": {}
 }
