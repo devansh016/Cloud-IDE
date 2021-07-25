@@ -19,8 +19,10 @@
   "homepage": "https://github.com/devansh016/Cloud-IDE#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "nodemon": "^2.0.12"
+    "nodemon": "^2.0.12",
+    "react": "^17.0.2"
   }
 }
