@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Cloud IDE</title>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="src/ace.js" type="text/javascript" charset="utf-8"></script>
+</head>
+  <body>
+    <div>
+      <div class="center">
+        <h1>Code Editor</h1>
+      </div>
+      
+      <div class="center">
+        <!-- Language Selection -->
+        <select id="myselect" onchange="onSelectChange(this.value.trim())">
+          <option value="53">C++</option>
+          <option value="62">Java</option>
+          <option value="70">Python</option>
+        </select>
+        <!-- Execute Button -->
+        <button type="button" class="button"> <span class="button__text">Execute</span> </button>
+      </div>
+      
+
+      <!-- Create Two Columns -->
+      <div class="row">
+
+        <!-- Left Column -->
+        <div class="column">
+          <!-- Code Editor -->
+          <div id="editorContainer">
+            <pre id="editor"></pre> 
+            
+          </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="column">
+          <!-- Output Box -->
+          <div class="box">
+            <textarea id="inputbox"></textarea>
+            <span class="boxhead">Input</span>
+          </div>
+          <br>
+
+           <!-- Input Box -->
+           <div class="box">
+            <textarea id="outputbox"></textarea>
+            <span class="boxhead">Output</span>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+    
+    <script src="src/theme-monokai.js" type="text/javascript" charset="utf-8"></script>
+    <script src="texteditor.js"></script>
+
+    <script>
+      function onSelectChange(selectedVal){ 
+        console.log(selectedVal)
+        if(selectedVal != undefined && selectedVal!=null && selectedVal!=""){
+          $("button").off('click');
+            codeEditor(selectedVal)
+          }
+        }
+        window.onload = function () {
+        codeEditor("53");
+      };
+    </script>
+  </body>
+</html>
