@@ -1,12 +1,18 @@
 var axios = require('axios');
 
+function sleep(ms) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
+} 
+
 async function executecode(userData){
     var da;
     let data_send = {
         source_code: userData.source_code,
-        language_id: userData.lang_id,
+        language_id: userData.language_id,
         number_of_runs: "1",
-        stdin: userData.input,
+        stdin: userData.stdin,
         expected_output: null,
         cpu_time_limit: "2",
         cpu_extra_time: "0.5",
@@ -28,16 +34,34 @@ async function executecode(userData){
       
       await axios(config)
       .then(function (response) {
-        console.log(JSON.stringify(response.data));
-        da = JSON.stringify(response.data);
+        da = response.data;
+        console.log(da);
         
       })
       .catch(function (error) {
-        console.log(error);
         return (error);
       });
-      return da;
+      await sleep(5000);
+      return getoutput(da);
+}
 
+async function getoutput(da){
+  var ans;
+  var config = {
+    method: 'get',
+    url: 'http://65.1.94.180:2358/submissions/' + da.token,
+    headers: { }
+  };
+  
+  await axios(config)
+  .then(function (response) {
+    ans = response.data;
+  })
+  .catch(function (error) {
+    return error;
+  });
+  return ans;
+  
 }
 
 module.exports = {
