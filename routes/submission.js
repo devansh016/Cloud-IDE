@@ -7,7 +7,6 @@ router.post('/', compilecode);
 function compilecode(req, res, next){
     submissionController.executecode(req.body)
         .then(result=> {
-            console.log(result);
             res.send(result);
         });
 }

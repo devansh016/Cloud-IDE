@@ -1,5 +1,7 @@
 var axios = require('axios');
+require('dotenv').config();
 
+var compiler_url = process.env.compiler_url;
 function sleep(ms) {
   return new Promise((resolve) => {
     setTimeout(resolve, ms);
@@ -29,16 +31,14 @@ async function executecode(userData){
 
       var config = {
         method: 'post',
-        url: 'http://65.1.94.180:2358/submissions',
+        url:  compiler_url + '/submissions',
         headers: { },
         data: data_send
       };
-      
+
       await axios(config)
       .then(function (response) {
-        da = response.data;
-        console.log(da);
-        
+        da = response.data;   
       })
       .catch(function (error) {
         return (error);
@@ -52,10 +52,9 @@ async function getoutput(da){
   var ans;
   var config = {
     method: 'get',
-    url: 'http://65.1.94.180:2358/submissions/' + da.token + '?base64_encoded=true',
+    url: compiler_url + '/submissions/' + da.token + '?base64_encoded=true',
     headers: { }
   };
-  
   await axios(config)
   .then(function (response) {
     ans = response.data;
@@ -73,9 +72,7 @@ async function getoutput(da){
     var b = new Buffer(ans.stderr, 'base64')
     ans.stderr = b.toString();
   }
-  console.log(ans);
-  return ans;
-  
+  return ans; 
 }
 
 module.exports = {
