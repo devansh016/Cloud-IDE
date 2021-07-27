@@ -17,3 +17,6 @@ Create a .env file in then root and add the following
 ```
 compile_url = your jugde0 url
 ```
+
+## Special Thanks 
+* Team ACE code for providing an awesome code editor.
