@@ -60,7 +60,7 @@ function codeEditor(lang_id) {
   }
   if(lang_id==CPP_KEY){
     editor.setValue(`#include <iostream>\nusing namespace std;\nint main() {\n\tstring name;\n\tcin >> name;\n\tcout<<"Hello, Welcome to " << name << "!";\n}`);
-    editor.getSession().setMode("ace/mode/cpp");
+    editor.getSession().setMode("ace/mode/c_cpp");
     document.getElementById('inputbox').value = "Cloud-IDE";
   }
   editor.setTheme("ace/theme/monokai");
