@@ -30,7 +30,7 @@ function codeEditor(lang_id) {
     $("button").click(function () {
       let code = editor.getValue();
       let input = document.getElementById('inputbox').value;
-      $("#outputbox").html("Loading...");
+      $("#outputbox").html("Compiling...");
       let data = {
         source_code: code,
         language_id: lang_id,
@@ -42,8 +42,14 @@ function codeEditor(lang_id) {
         data: data,
       });
       request.done(async function (response, textStatus, jqXHR) {
-        $("#outputbox").html(response.stdout);
+        if(response.status.id==3){
+          console.log(response);
+          $("#outputbox").html(response.stdout);
+        } else{
+          $("#outputbox").html(response.status.description);
+        }
         theButton.classList.remove("button--loading");
+        
       });
     });
   });
