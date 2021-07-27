@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cloud IDE</title>
   <link rel="stylesheet" type="text/css" href="style.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -9,16 +11,16 @@
 <body>
   <div>
     <div class="center">
-      <h1>Code Editor</h1>
+      <h1>Cloud IDE</h1>
     </div>
       
-    <div class="center">
+    <div class="controlbar">
       <!-- Language Selection -->
-      <select id="myselect" onchange="onSelectChange(this.value.trim())">
-        <option value="53">C++</option>
-        <option value="62">Java</option>
-        <option value="70">Python</option>
-      </select>
+        <select id="myselect" onchange="onSelectChange(this.value.trim())">
+          <option value="53">C++</option>
+          <option value="62">Java</option>
+          <option value="70">Python</option>
+        </select>
       <!-- Execute Button -->
       <button type="button" class="button"> <span class="button__text">Execute</span> </button>
     </div>
