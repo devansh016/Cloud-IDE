@@ -9,6 +9,19 @@ theButton.addEventListener("click", () => {
     theButton.classList.add("button--loading");
 });
 
+// Function for langauge selection box
+function onSelectChange(selectedVal){ 
+  if(selectedVal != undefined && selectedVal!=null && selectedVal!=""){
+    $("button").off('click');
+    codeEditor(selectedVal)
+  }
+}
+
+// CPP as default language selector
+window.onload = function () {
+  codeEditor("53");
+};
+
 //Function to execute code requires language id as parameter
 function codeEditor(lang_id) {
   var editor = ace.edit("editor");
@@ -36,27 +49,15 @@ function codeEditor(lang_id) {
   });
 
   if(lang_id==PYTHON_KEY){
-    editor.setValue("def execute(): \n\t for i in range(10):\n\t\t print i \nexecute()")
+    editor.setValue(`def execute(): \n\t for i in range(10):\n\t\t print i \nexecute()`)
     editor.getSession().setMode("ace/mode/python");
   }
-
   if(lang_id==JAVA_KEY){
-    let javacode = `public class Main{
-    public static void main(String args[]){
-      System.out.println("Hello World!");
-    }
-  }`;
-  editor.setValue(javacode)
-  editor.getSession().setMode("ace/mode/java");
+    editor.setValue(`public class Main{\n\tpublic static void main(String args[]){\n\t\tSystem.out.println("Hello World!");\n\t}\n}`);
+    editor.getSession().setMode("ace/mode/java");
   }
-
   if(lang_id==CPP_KEY){
-    let cppcode = `#include <iostream>
-    using namespace std;
-    int main() {
-      cout<<"Hello World";
-    }`
-    editor.setValue(cppcode)
+    editor.setValue(`#include <iostream>\nusing namespace std;\nint main() {\n\tcout<<"Hello World";\n}`);
     editor.getSession().setMode("ace/mode/cpp");
   }
   editor.setTheme("ace/theme/monokai");
