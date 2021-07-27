@@ -51,14 +51,17 @@ function codeEditor(lang_id) {
   if(lang_id==PYTHON_KEY){
     editor.setValue(`def execute(): \n\t for i in range(10):\n\t\t print i \nexecute()`)
     editor.getSession().setMode("ace/mode/python");
+    document.getElementById('inputbox').value = "";
   }
   if(lang_id==JAVA_KEY){
     editor.setValue(`public class Main{\n\tpublic static void main(String args[]){\n\t\tSystem.out.println("Hello World!");\n\t}\n}`);
     editor.getSession().setMode("ace/mode/java");
+    document.getElementById('inputbox').value = "";
   }
   if(lang_id==CPP_KEY){
-    editor.setValue(`#include <iostream>\nusing namespace std;\nint main() {\n\tcout<<"Hello World";\n}`);
+    editor.setValue(`#include <iostream>\nusing namespace std;\nint main() {\n\tstring name;\n\tcin >> name;\n\tcout<<"Hello, Welcome to " << name << "!";\n}`);
     editor.getSession().setMode("ace/mode/cpp");
+    document.getElementById('inputbox').value = "Cloud-IDE";
   }
   editor.setTheme("ace/theme/monokai");
 } 
