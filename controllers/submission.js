@@ -6,6 +6,8 @@ function sleep(ms) {
   });
 } 
 
+// Function to send exection request to compiler
+// Gets a token from the compiler server
 async function executecode(userData){
     var da;
     let data_send = {
@@ -45,11 +47,12 @@ async function executecode(userData){
       return getoutput(da);
 }
 
+// Function to get the details of the executed program using the token
 async function getoutput(da){
   var ans;
   var config = {
     method: 'get',
-    url: 'http://65.1.94.180:2358/submissions/' + da.token,
+    url: 'http://65.1.94.180:2358/submissions/' + da.token + '?base64_encoded=true',
     headers: { }
   };
   
@@ -58,8 +61,19 @@ async function getoutput(da){
     ans = response.data;
   })
   .catch(function (error) {
-    return error;
+    ans = error;
   });
+
+  //Decoding base64 strings
+  if(ans.stdout != null){
+    var b = new Buffer(ans.stdout, 'base64');
+    ans.stdout = b.toString();
+  }
+  if(ans.stderr != null){
+    var b = new Buffer(ans.stderr, 'base64')
+    ans.stderr = b.toString();
+  }
+  console.log(ans);
   return ans;
   
 }
